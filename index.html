@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./CSS/styles.css">
+  <title>Formulaire</title>
+</head>
+
+<body>
+  <main>
+    <h1>Formulaire de Participation a la competition de jeux video</h1>
+    <span>
+      <p class="italic">Completez le formulaire. Les champs marque par</p>
+      <p class=" red">*</p>
+      <p>sont</p>
+      <p class="red">obligatoires</p>
+    </span>
+    <div>
+      <form method="get" action="./traitement.php">
+        <!-- name: variable used to reference this data in the backend -->
+        <!-- <label> attribute for="" points to the ID of relevant input -->
+        <fieldset>
+          <legend>Information personnelles</legend>
+          <label for="name">Nom<span class="red">*</span></label>
+          <input type="text" name="name" id="name" placeholder="saisir votre nom" required>
+          <br>
+          <label for="age">Age<span class="red">*</span></label>
+          <input type="number" name="age" id="age" placeholder="xx" min="12" required>
+          <br>
+          <label for="sex">Sexe</label>
+          <select name="sex" id="sex">
+            <option value="0"></option>
+            <option value="F">Femme</option>
+            <option value="M">Homme</option>
+            <option value="X">Autre</option>
+          </select>
+          <br>
+          <div class="flex">
+            <!-- applied minimum length constraint -->
+            <label for="commentaire" class="comment">Pourquoi voulez-vous participer a cette competition?</label>
+            <textarea minlength="50"></textarea>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Quel framework choisir pour votre projet web ?</legend>
+          <!-- used divs for flexbox styling -->
+          <div class="flex">
+            <div class=cb>
+              <input type="checkbox" name="frameworks[]" id="react">
+              <label for="react">React</label>
+            </div>
+            <div class=cb>
+              <input type="checkbox" name="frameworks[]" id="angular">
+              <label for="angular">Angular</label>
+            </div>
+            <div class=cb>
+              <input type="checkbox" name="frameworks[]" id="vuejs">
+              <label for="vuejs">VueJs</label>
+            </div>
+            <div class=cb>
+              <input type="checkbox" name="frameworks[]" id="symfony">
+              <label for="symphony">Symfony</label>
+            </div>
+            <div class=cb>
+              <input type="checkbox" name="frameworks[]" id="spring">
+              <label for="spring">Spring</label>
+            </div>
+            <div class=cb>
+              <input type="checkbox" name="frameworks[]" id="laravel">
+              <label for="laravel">Laravel</label>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Contact</legend>
+          <label for="tel">Telephone</label>
+          <!-- use regex to control number type (french telephone) -->
+          <input type="text" name="tel" id="tel" placeholder="XX XX XX XX XX"
+            pattern="^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$">
+          <br>
+          <label for="email">Email<span class="red">*</span></label>
+          <!-- use regex to control email length/contents -->
+          <input type="email" name="email" id="email" placeholder="votremail@lagrandeclasse.fr"
+            pattern="^(?={1,20}+@lagrandeclasse.fr)" required>
+          <br>
+        </fieldset>
+        <input type="submit" value="Soummettre" class="button">
+      </form>
+    </div>
+  </main>
+</body>
+
+</html>
